@@ -44,7 +44,7 @@ INSTALLED_APPS += [
     'college',
     'school',
     'institution',
-    'tenants',
+    # 'tenants',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 MIDDLEWARE += [
-    'tenants.middleware.TenantMiddleware',
+    # 'tenants.middleware.TenantMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
