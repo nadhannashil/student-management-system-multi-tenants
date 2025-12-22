@@ -25,6 +25,10 @@ class UserManager(BaseUserManager):
         )
 
         user.set_password(password)
+
+        if role == "staff":
+            user.is_staff = True
+
         user.save(using=self._db)
         return user
 
