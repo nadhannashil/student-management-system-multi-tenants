@@ -1,8 +1,7 @@
 from django.db import models
-from django.utils.module_loading import module_has_submodule
+from django_tenants.models import TenantMixin, DomainMixin
 
-
-class Tenants(models.Model):
+class Tenant(TenantMixin):
     TENANT_TYPES = (
         ('school', 'School'),
         ('college', 'College'),
@@ -11,9 +10,12 @@ class Tenants(models.Model):
 
     name = models.CharField(max_length=200)
     tenant_type = models.CharField(max_length=20, choices=TENANT_TYPES)
-    is_active = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
 
+    auto_create_schema = True
 
     def __str__(self):
-        return f"{self.name} ({self.tenant_type})"
+        return self.name
+
+
+class Domain(DomainMixin):
+    pass
